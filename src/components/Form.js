@@ -2,33 +2,28 @@ import React, { useState } from "react";
 import DisplayResult from "./DisplayResult";
 
 const Form = () => {
-
-  const [email, setemail] = useState('')
-  const [password, setpassword] = useState('')
-  const [data, setdata] = useState([])
-  const passwordInput=(e)=>{
-    setpassword(e.target.value)
-  
-  }
-  const emailInput=(e)=>{
-    setemail(e.target.value)
-  }
-  const submit=(e)=>{
-    e.preventDefault()
-    let dataObj={
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [data, setdata] = useState([]);
+  const passwordInput = (e) => {
+    setpassword(e.target.value);
+  };
+  const emailInput = (e) => {
+    setemail(e.target.value);
+  };
+  const submit = (e) => {
+    e.preventDefault();
+    let dataObj = {
       email,
-      password
-    }
-    setdata([...data,dataObj])
-    console.log(dataObj)
-    setemail('')
-    setpassword("")
-  }
-  
+      password,
+    };
+    setdata([...data, dataObj]);
+    console.log(dataObj);
+    setemail("");
+    setpassword("");
+  };
 
-  
   return (
-    
     <div>
       <form onSubmit={submit}>
         <div className="mb-3">
@@ -59,12 +54,12 @@ const Form = () => {
             value={password}
           />
         </div>
-        
-        <button type="submit" className="btn btn-success" >
+
+        <button type="submit" className="btn btn-success">
           Submit
         </button>
       </form>
-      <DisplayResult dataProp={data}/>
+      <DisplayResult dataProp={data} />
     </div>
   );
 };
